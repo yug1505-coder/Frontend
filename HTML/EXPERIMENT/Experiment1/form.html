@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up Form</title>
+</head>
+<body>
+    <form action="submit.php" method="post">
+        <label for="fname">First name</label>
+        <input type="text"name="fname" placeholder="Enter your first name" pattern="[A-Za-z]+" title="only alphabets allowed">
+        <br><br>
+        <label for="lname">Last name</label>
+        <input type="text"name="lname" placeholder="Enter your last name" pattern="[A-Za-z]+" title="only alphabets allowed">
+        <br><br>
+        <label for="age">Age:</label>
+        <input type="number" name="age" min="1" max="100" placeholder="Select">
+        <br><br>
+        <label for="contno.">Contact Number:</label>
+        <input type="tel"name="contno." placeholder="Enter your contact number" pattern="[0-9]{10}" title="Enter 10 digit number">
+        <br><br>
+        <label for="e-mail">E-mail:</label>
+        <input type="text"name="e-mail" placeholder="Enter your e-mail">
+        <br><br>
+        <label>Gender:</label>
+        <input type="radio" name="Gender" value="Male">
+        <label for="male">Male</label>
+        <input type="radio" name="Gender" value="Female">
+        <label for="female">Female</label>
+        <input type="radio" name="Gender" value="Other">
+        <label for="other">Other</label>
+        <br><br>
+        <label for="branch">Select Branch:</label>
+        <select name="branch" >
+            <option>Select</option>
+            <option>CSE</option>
+            <option>EEE</option>
+            <option>ME</option>
+            <option>CE</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+</body>
+</html>
