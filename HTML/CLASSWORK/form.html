@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <form action="submit.php" method="POST">
+        <label for="username">Username</label>
+        <input type="text" name="username" placeholder="must be in lowercase">
+        <br><br>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Enter your password">
+        <br><br>
+
+        <label for="contact number">Contact number</label>
+        <input type="tel" name="contact number" placeholder="Enter your contact number" pattern ="[0-9],{10}">
+        <br><br>
+        <label for="e-mail">E-mail</label>
+        <input type="email" id="e-mail" name="e-mail" placeholder="Enter your e-mail">
+        <br><br>
+        <input type="submit"  value="Submit">
+        
+    </form>
+
+    
+</body>
+</html>
