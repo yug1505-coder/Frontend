@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 7</title>
+  <style>
+    #spn{
+      display:none;
+      font-size:18px;
+      font-weight:bold;
+    }
+    table, td, th{
+      border:1px solid #000;
+      border-collapse:collapse;
+      padding:6px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>User Data</h2>
+
+<button id="btn">Refresh</button>
+<span id="spn">Loading...</span>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody id="tb"></tbody>
+</table>
+
+<script>
+  const tb = document.getElementById("tb");
+  const btn = document.getElementById("btn");
+  const sp = document.getElementById("spn");
+
+  async function loadData() {
+    sp.style.display = "inline";
+    tb.innerHTML = "";
+
+    try {
+      let r = await fetch("https://jsonplaceholder.typicode.com/users");
+      let d = await r.json();
+
+      d.forEach(u => {
+        tb.innerHTML += `
+          <tr>
+            <td>${u.name}</td>
+            <td>${u.email}</td>
+            <td>${u.address.city}</td>
+          </tr>
+        `;
+      });
+
+    } catch (e) {
+      tb.innerHTML = "<tr><td colspan='3'>Error loading data</td></tr>";
+    }
+
+    sp.style.display = "none";
+  }
+
+  btn.addEventListener("click", loadData);
+  loadData();
+</script>
+
+</body>
+</html>

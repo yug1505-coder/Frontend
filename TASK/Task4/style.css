@@ -1,0 +1,42 @@
+body{
+    font-family: Arial;
+    background: #f1f1f1;
+    padding: 40px;
+}
+
+.box{
+    width: 350px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin: auto;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+input{
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 4px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.er{
+    color: red;
+    font-size: 13px;
+    height: 18px;
+    margin-bottom: 8px;
+}
+
+.ok{ border-color: green; }
+.bad{ border-color: red; }
+
+button{
+    width: 100%;
+    padding: 8px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

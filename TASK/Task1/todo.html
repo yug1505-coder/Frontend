@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do</title>
+    <style>
+        body{
+            background: #d7e7f0;
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+        .container {
+            background: rgb(241, 238, 243);
+            padding: 25px;
+            width: 600px;
+            border-radius: 10px;
+            
+        }
+        h2 {
+            text-align: center;
+        }
+        .input-section {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .input-section input,
+        .input-section select {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .task {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fafafa;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        .task.completed {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+        .left {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .delete-btn {
+            background: red;
+            padding: 7px 12px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>To Do Task</h2>
+
+        <div class="input-section">
+            <input id="todoInput" type="text" placeholder="what to do?">
+
+            <select id="category">
+                <option value="Select">SELECT</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+
+            <button onclick="addTask()">ADD</button>
+        </div>
+
+        <h3 style="margin-top:20px;">Tasks</h3>
+        <div id="taskList"></div>
+    </div>
+
+<script>
+    function addTask() {
+        let taskText = document.getElementById("todoInput").value;
+        let category = document.getElementById("category").value;
+
+       
+        let taskList = document.getElementById("taskList");
+
+        let taskDiv = document.createElement("div");
+        taskDiv.classList.add("task");
+
+        taskDiv.innerHTML = `
+            <div class="left">
+                <input type="checkbox" onclick="toggleComplete(this)">
+                <span>${taskText} (${category})</span>
+            </div>
+            <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
+        `;
+        taskList.appendChild(taskDiv);
+        
+    }
+    function toggleComplete(checkbox) {
+        let task = checkbox.parentElement.parentElement;
+        task.classList.toggle("completed");
+    }
+
+    function deleteTask(button) {
+        button.parentElement.remove();
+    }
+</script>
+
+</body>
+</html>
